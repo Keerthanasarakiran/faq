@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event FAQs with Jump Links</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom FAQ Styles */
+        :root {
+            --primary-color: #2e0e8c;
+            --secondary-color: #1a0a5e;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .faq-area {
+            background-color: #fff;
+            padding: 80px 0;
+        }
+        
+        .section-tittle h2 {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .section-tittle p {
+            color: #666;
+            font-size: 16px;
+        }
+        
+        /* Jump Links Navigation */
+        .jump-links-nav {
+            background: #f9f9ff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            position: sticky;
+            top: 20px;
+        }
+        
+        .jump-links-nav h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        .jump-links-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .jump-links-list li {
+            margin-bottom: 12px;
+        }
+        
+        .jump-link {
+            display: flex;
+            align-items: center;
+            color: #333;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 6px;
+        }
+        
+        .jump-link:hover {
+            background: rgba(46, 14, 140, 0.1);
+            color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+        
+        .jump-link i {
+            margin-right: 10px;
+            color: var(--primary-color);
+            font-size: 14px;
+        }
+        
+        /* Questions Section */
+        .questions-section {
+            background: #fff;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+        }
+        
+        .question-item {
+            padding: 30px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .question-item:last-child {
+            border-bottom: none;
+        }
+        
+        .question-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .question-number {
+            background: var(--primary-color);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: 700;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+        
+        .question-title {
+            font-weight: 700;
+            color: var(--secondary-color);
+            font-size: 20px;
+            margin: 0;
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 991px) {
+            .jump-links-nav {
+                position: static;
+                margin-bottom: 30px;
+            }
+            
+            .questions-section {
+                padding: 30px 20px;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .faq-area {
+                padding: 50px 0;
+            }
+            
+            .question-title {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- FAQ Section Start -->
+    <section class="faq-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="section-tittle text-center mb-50">
+                        <h2>Frequently Asked Questions</h2>
+                        <p>Find quick answers to common questions about our event</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <!-- Jump Links Navigation -->
+                <div class="col-lg-4">
+                    <div class="jump-links-nav">
+                        <h3>Quick Questions</h3>
+                        <ul class="jump-links-list">
+                            <li>
+                                <a href="#q1" class="jump-link">
+                                    <i class="fas fa-arrow-right"></i>
+                                    <span>Paper submission deadline</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#q2" class="jump-link">
+                                    <i class="fas fa-arrow-right"></i>
+                                    <span>Presentation format</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#q3" class="jump-link">
+                                    <i class="fas fa-arrow-right"></i>
+                                    <span>Co-authors policy</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#q4" class="jump-link">
+                                    <i class="fas fa-arrow-right"></i>
+                                    <span>Registration fees</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#q5" class="jump-link">
+                                    <i class="fas fa-arrow-right"></i>
+                                    <span>Participation certificates</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#q6" class="jump-link">
+                                    <i class="fas fa-arrow-right"></i>
+                                    <span>Evaluation criteria</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#q7" class="jump-link">
+                                    <i class="fas fa-arrow-right"></i>
+                                    <span>Proceedings publication</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#q8" class="jump-link">
+                                    <i class="fas fa-arrow-right"></i>
+                                    <span>Paper formatting</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#q9" class="jump-link">
+                                    <i class="fas fa-arrow-right"></i>
+                                    <span>Contact information</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Questions Section -->
+                <div class="col-lg-8">
+                    <div class="questions-section">
+                        <!-- Question 1 -->
+                        <div class="question-item" id="q1">
+                            <div class="question-header">
+                                <div class="question-number">1</div>
+                                <h3 class="question-title">What is the last date for paper submission?</h3>
+                            </div>
+                        </div>
+                        
+                        <!-- Question 2 -->
+                        <div class="question-item" id="q2">
+                            <div class="question-header">
+                                <div class="question-number">2</div>
+                                <h3 class="question-title">What is the presentation format (PPT/PDF) and time limit?</h3>
+                            </div>
+                        </div>
+                        
+                        <!-- Question 3 -->
+                        <div class="question-item" id="q3">
+                            <div class="question-header">
+                                <div class="question-number">3</div>
+                                <h3 class="question-title">Are co-authors allowed? How many?</h3>
+                            </div>
+                        </div>
+                        
+                        <!-- Question 4 -->
+                        <div class="question-item" id="q4">
+                            <div class="question-header">
+                                <div class="question-number">4</div>
+                                <h3 class="question-title">Is there a registration fee? How to pay?</h3>
+                            </div>
+                        </div>
+                        
+                        <!-- Question 5 -->
+                        <div class="question-item" id="q5">
+                            <div class="question-header">
+                                <div class="question-number">5</div>
+                                <h3 class="question-title">Will participants receive certificates?</h3>
+                            </div>
+                        </div>
+                        
+                        <!-- Question 6 -->
+                        <div class="question-item" id="q6">
+                            <div class="question-header">
+                                <div class="question-number">6</div>
+                                <h3 class="question-title">What are the evaluation criteria for presentations?</h3>
+                            </div>
+                        </div>
+                        
+                        <!-- Question 7 -->
+                        <div class="question-item" id="q7">
+                            <div class="question-header">
+                                <div class="question-number">7</div>
+                                <h3 class="question-title">Will selected papers be published in proceedings?</h3>
+                            </div>
+                        </div>
+                        
+                        <!-- Question 8 -->
+                        <div class="question-item" id="q8">
+                            <div class="question-header">
+                                <div class="question-number">8</div>
+                                <h3 class="question-title">What are the guidelines for paper formatting?</h3>
+                            </div>
+                        </div>
+                        
+                        <!-- Question 9 -->
+                        <div class="question-item" id="q9">
+                            <div class="question-header">
+                                <div class="question-number">9</div>
+                                <h3 class="question-title">Who should we contact for queries?</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Back to top button -->
+        <a href="#" class="back-to-top" id="backToTop">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </section>
+    <!-- FAQ Section End -->
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Smooth scrolling for jump links
+        document.querySelectorAll('.jump-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Highlight current question in jump links when scrolling
+        const questionItems = document.querySelectorAll('.question-item');
+        const jumpLinks = document.querySelectorAll('.jump-link');
+        
+        window.addEventListener('scroll', function() {
+            let current = '';
+            
+            questionItems.forEach(question => {
+                const questionTop = question.offsetTop;
+                const questionHeight = question.clientHeight;
+                
+                if (window.scrollY >= (questionTop - 150)) {
+                    current = '#' + question.getAttribute('id');
+                }
+            });
+            
+            jumpLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === current) {
+                    link.classList.add('active');
+                    link.style.backgroundColor = 'rgba(46, 14, 140, 0.1)';
+                    link.style.color = '#1a0a5e';
+                    link.style.transform = 'translateX(5px)';
+                } else {
+                    link.style.backgroundColor = '';
+                    link.style.color = '';
+                    link.style.transform = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
